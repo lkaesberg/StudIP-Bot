@@ -29,5 +29,6 @@ def main():
             log_file.close()
             sleep(log_time)
 
-            if __name__ == '__main__':
-                main()
+
+if __name__ == '__main__':
+    main()
