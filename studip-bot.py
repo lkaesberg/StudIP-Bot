@@ -1,15 +1,16 @@
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from credentials import username, password
 from lorem_text import lorem
 from time import sleep
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--window-size=1920x1080")
-driver = webdriver.Chrome(chrome_options=chrome_options, executable_path="./chromedriver")
+
+options = FirefoxOptions()
+options.add_argument("--headless")
+driver = webdriver.Firefox(options=options)
+
 
 print("Loading StudIP...")
 driver.get("https://studip.uni-goettingen.de/")
