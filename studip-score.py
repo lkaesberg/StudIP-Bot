@@ -24,12 +24,10 @@ def main():
     while True:
         for user in users:
             log_file = open(f"logs/{user}.log", "a")
-
-            log_file.write(str({"score": get_score(driver, user), "time": int(time.time())}) + "\n")
+            log_file.write(f"{get_score(driver, user)} {int(time.time())}\n")
             log_file.flush()
             log_file.close()
-        sleep(log_time)
+            sleep(log_time)
 
-
-if __name__ == '__main__':
-    main()
+            if __name__ == '__main__':
+                main()
