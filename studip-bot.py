@@ -9,7 +9,7 @@ from time import sleep
 
 options = FirefoxOptions()
 options.add_argument("--headless")
-driver = webdriver.Firefox(options=options)
+driver = webdriver.Firefox(options=options, executable_path="./geckodriver")
 
 
 print("Loading StudIP...")
