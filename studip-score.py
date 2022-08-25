@@ -22,11 +22,12 @@ def main():
 
     login(driver)
     while True:
+        curr_time = int(time.time())
         for user in users:
             score = get_score(driver, user)
             if score:
                 log_file = open(f"logs/{user}.log", "a")
-                log_file.write(f"{score} {int(time.time())}\n")
+                log_file.write(f"{score} {curr_time}\n")
                 log_file.flush()
                 log_file.close()
                 print(f"{user}: Got score")
