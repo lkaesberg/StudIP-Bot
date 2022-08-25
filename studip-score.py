@@ -23,10 +23,15 @@ def main():
     login(driver)
     while True:
         for user in users:
-            log_file = open(f"logs/{user}.log", "a")
-            log_file.write(f"{get_score(driver, user)} {int(time.time())}\n")
-            log_file.flush()
-            log_file.close()
+            score = get_score(driver, user)
+            if score:
+                log_file = open(f"logs/{user}.log", "a")
+                log_file.write(f"{score} {int(time.time())}\n")
+                log_file.flush()
+                log_file.close()
+                print(f"{user}: Got score")
+            else:
+                print(f"{user}: Score not public")
         sleep(log_time)
 
 

@@ -17,7 +17,10 @@ def login(driver):
 
 def get_score(driver: WebDriver, username):
     driver.get(f"https://studip.uni-goettingen.de/dispatch.php/profile?username={username}")
-    score = driver.find_element(By.CSS_SELECTOR,
-                                "div.minor:nth-child(2) > a:nth-child(1) > div:nth-child(1)").text
-    score = int(score.split(" ")[1].replace(".", ""))
-    return score
+    try:
+        score = driver.find_element(By.CSS_SELECTOR,
+                                    "div.minor:nth-child(2) > a:nth-child(1) > div:nth-child(1)").text
+        score = int(score.split(" ")[1].replace(".", ""))
+        return score
+    except:
+        return None
