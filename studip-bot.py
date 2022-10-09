@@ -16,7 +16,7 @@ def main():
     driver = webdriver.Firefox(options=options, executable_path="./geckodriver")
 
     login(driver)
-    driver.find_element(By.XPATH, "/html/body/div/div[5]/div[2]/div[2]/div/table[1]/tbody/tr[7]/td[5]/a[1]").click()
+    driver.get("https://studip.uni-goettingen.de/plugins.php/blubber/messenger/course?cid=3bef620d24272d395a5f0dde1e9799c1")
     while True:
         print("Send Message")
         driver.find_element(By.XPATH,
