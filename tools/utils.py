@@ -19,7 +19,7 @@ def get_score(driver: WebDriver, username):
     driver.get(f"https://studip.uni-goettingen.de/dispatch.php/profile?username={username}")
     try:
         score = driver.find_element(By.CSS_SELECTOR,
-                                    "div.minor:nth-child(2) > a:nth-child(1) > div:nth-child(1)").text
+                                    "#layout-sidebar > section > div:nth-child(3) > div.sidebar-widget-content > div.profile-sidebar-details > div:nth-child(2) > a > div:nth-child(1)").text
         score = int(score.split(" ")[1].replace(".", ""))
         return score
     except:
