@@ -29,4 +29,11 @@ def get_score(driver: WebDriver, username):
         return score
 
     except:
+        try:
+            score = WebDriverWait(driver, 2).until(EC.presence_of_element_located(
+            (By.XPATH, "/html/body/div/div[5]/div[2]/div[1]/section/div[3]/div[2]/div[2]/div[3]/a/div[1]"))).text
+            score = int(score.split(" ")[1].replace(".", ""))
+            return score
+        except:
+            return None
         return None
