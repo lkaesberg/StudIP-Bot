@@ -16,13 +16,13 @@ def main():
     driver = webdriver.Firefox(options=options, executable_path="./geckodriver")
 
     login(driver)
-    driver.get("https://studip.uni-goettingen.de/plugins.php/blubber/messenger/course?cid=3bef620d24272d395a5f0dde1e9799c1")
+    driver.get("https://studip.uni-goettingen.de/dispatch.php/course/messenger/course?cid=3bef620d24272d395a5f0dde1e9799c1")
     while True:
         print("Send Message")
         words = 4
         driver.find_element(By.XPATH,
-                            "/html/body/div/div[5]/div[2]/div[2]/div/div[1]/div/div[3]/textarea[2]").send_keys(lorem.words(words))
-        driver.find_element(By.XPATH, "/html/body/div/div[5]/div[2]/div[2]/div/div[1]/div/div[3]/a/img").click()
+                            "/html/body/main/div/div/div[1]/div[1]/div/div[3]/textarea").send_keys(lorem.words(words))
+        driver.find_element(By.XPATH, "/html/body/main/div/div/div[1]/div[1]/div/div[3]/label/img").click()
         sleep(message_time)
 
 
