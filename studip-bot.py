@@ -26,7 +26,7 @@ def main():
             (By.XPATH, "/html/body/main/div/div/div[1]/div[1]/div/div[3]/textarea")))
         driver.find_element(By.XPATH,
                             "/html/body/main/div/div/div[1]/div[1]/div/div[3]/textarea").send_keys(lorem.words(words))
-        driver.find_element(By.XPATH, "/html/body/main/div/div/div[1]/div[1]/div/div[3]/label/img").click()
+        driver.find_element(By.XPATH, "/html/body/main/div/div/div[1]/div[1]/div/div[3]/textarea").sendKeys(Keys.RETURN)
         sleep(message_time)
 
 
