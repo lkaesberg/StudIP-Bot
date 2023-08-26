@@ -23,15 +23,15 @@ def login(driver):
 def get_score(driver: WebDriver, username):
     driver.get(f"https://studip.uni-goettingen.de/dispatch.php/profile?username={username}")
     try:
-        score = WebDriverWait(driver, 4).until(EC.presence_of_element_located(
+        score = WebDriverWait(driver, 1).until(EC.presence_of_element_located(
             (By.XPATH, "/html/body/aside/div[2]/div[2]/div[2]/div[2]/a"))).text
         score = int(score.split(" ")[1].split("\n")[0].replace(".", ""))
         return score
 
     except:
         try:
-            score = WebDriverWait(driver, 4).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div/div[5]/div[2]/div[1]/section/div[2]/div[2]/div[2]/div[3]/a/div[1]"))).text
+            score = WebDriverWait(driver, 1).until(EC.presence_of_element_located(
+            (By.XPATH, "/html/body/aside/div[2]/div[2]/div[2]/div[3]/a"))).text
             score = int(score.split(" ")[1].split("\n")[0].replace(".", ""))
             return score
         except:
